@@ -44,10 +44,10 @@ class Iselenium(unittest.TestCase):
         #
         # self.driver = webdriver.Chrome(executable_path=config.get('driver','chrome_driver'),
         #                                options=chrome_options)
-        if config.get('driver','chrome_driver')=="C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe":
-            print("相等")
-        print(config.get('driver','chrome_driver'))
-        print("C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe")
+        # if config.get('driver','chrome_driver')=="C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe":
+        #     print("相等")
+        # print(config.get('driver','chrome_driver'))
+        # print("C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe")
         # self.driver = webdriver.Chrome(executable_path=config.get('driver','chrome_driver'),options=chrome_options)
         self.driver=webdriver.Remote("http://192.168.224.137:5002/wd/hub",options=chrome_options)
 
@@ -81,6 +81,8 @@ class Iselenium(unittest.TestCase):
         assert f'百度一下' in self.driver.title
 
         elem=self.driver.find_element_by_name("wd")
+
+        print(elem)
         elem.send_keys(f'{search_keyword}{Keys.RETURN}')
         print(f'搜索关键词~{search_keyword}')
         time.sleep(5)
