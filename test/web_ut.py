@@ -13,13 +13,13 @@ from selenium.webdriver.chrome.options import Options
 @allure.feature('Test Baidu WebUI')
 class Iselenium(unittest.TestCase):
     #读入配置文件
-    def get_config(self):
-        config=configparser.ConfigParser()
-        config.read(os.path.join(os.environ['HOME'],'iselenum.ini'))#linux中
-        # config.read(os.path.abspath('..') + '\iselenium.ini')#windows中
-        # os.environ['HOME']  在linux中cd ~   ,在windows中例如c:\users\username
-
-        return config
+    # def get_config(self):
+    #     config=configparser.ConfigParser()
+    #     config.read(os.path.join(os.environ['HOME'],'iselenum.ini'))#linux中
+    #     # config.read(os.path.abspath('..') + '\iselenium.ini')#windows中
+    #     # os.environ['HOME']  在linux中cd ~   ,在windows中例如c:\users\username
+    #
+    #     return config
 
     def tearDown(self):
         self.driver.quit()
@@ -43,9 +43,9 @@ class Iselenium(unittest.TestCase):
 
 
 
-        self.driver = webdriver.Chrome(executable_path=config.get('driver','chrome_driver'),
-                                       options=chrome_options)
-
+        # self.driver = webdriver.Chrome(executable_path=config.get('driver','chrome_driver'),
+        #                                options=chrome_options)
+        self.driver = webdriver.Remote("http://192.168.224.137:5002/wd/hub", options=chrome_options)
 
 
 

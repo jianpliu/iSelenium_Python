@@ -38,17 +38,18 @@ class Iselenium(unittest.TestCase):
 
         # if using_headless is not None and using_headless.lower()=='true':
         #     print("使用无界面方式运行")
-        #     chrome_options.add_argument("--headless")
+        # chrome_options.add_argument("--headless")
 
 
-
-        self.driver = webdriver.Chrome(executable_path=config.get('driver','chrome_driver'),
-                                       options=chrome_options)
+        #
+        # self.driver = webdriver.Chrome(executable_path=config.get('driver','chrome_driver'),
+        #                                options=chrome_options)
         if config.get('driver','chrome_driver')=="C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe":
             print("相等")
         print(config.get('driver','chrome_driver'))
         print("C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe")
-        self.driver = webdriver.Chrome(executable_path=config.get('driver','chrome_driver'),options=chrome_options)
+        # self.driver = webdriver.Chrome(executable_path=config.get('driver','chrome_driver'),options=chrome_options)
+        self.driver=webdriver.Remote("http://192.168.224.137:5002/wd/hub",options=chrome_options)
 
 
 
@@ -59,12 +60,14 @@ class Iselenium(unittest.TestCase):
         """测试用例1,验证'今日头条'关键词在百度上的搜索结果"""
 
         self._test_baidu('今日头条','test_webui_1')
+        self.driver.save_screenshot("1.png")
 
     @allure.story('The key word 王者荣耀')
     def test_webui_2(self):
         """测试用例1,验证'今日头条'关键词在百度上的搜索结果"""
 
         self._test_baidu('王者荣耀', 'test_webui_2')
+        self.driver.save_screenshot("2.png")
 
     def _test_baidu(self,search_keyword,testcase_name):
         """测试百度搜索子函数
