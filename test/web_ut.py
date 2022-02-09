@@ -26,7 +26,7 @@ class Iselenium(unittest.TestCase):
 
     def setUp(self):
 
-        config=self.get_config()
+        # config=self.get_config()
 
         # 控制是否采用无界面形式运行自动化测试
         try:
