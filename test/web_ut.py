@@ -4,6 +4,7 @@ import configparser
 import os
 import time
 import unittest
+from selenium.webdriver.common.by import By
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -74,7 +75,8 @@ class Iselenium(unittest.TestCase):
         time.sleep(5)
         assert f'百度一下' in self.driver.title
 
-        elem=self.driver.find_element_by_name("wd")
+        # elem=self.driver.find_element_by_name("wd")
+        elem=self.driver.find_element(By.NAME,"wd")
         print(len(elem))
         print(elem)
         elem.send_keys(f'{search_keyword}{Keys.RETURN}')
