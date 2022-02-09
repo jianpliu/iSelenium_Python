@@ -25,7 +25,7 @@ class Iselenium(unittest.TestCase):
         self.driver.quit()
 
     def setUp(self):
-        print("ssss")
+
         config=self.get_config()
 
         # 控制是否采用无界面形式运行自动化测试
@@ -45,11 +45,7 @@ class Iselenium(unittest.TestCase):
 
         self.driver = webdriver.Chrome(executable_path=config.get('driver','chrome_driver'),
                                        options=chrome_options)
-        if config.get('driver','chrome_driver')=="C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe":
-            print("相等")
-        print(config.get('driver','chrome_driver'))
-        print("C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe")
-        self.driver = webdriver.Chrome(executable_path=config.get('driver','chrome_driver'),options=chrome_options)
+
 
 
 
