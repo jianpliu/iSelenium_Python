@@ -75,7 +75,9 @@ class Iselenium(unittest.TestCase):
         assert f'百度一下' in self.driver.title
 
         elem=self.driver.find_element_by_name("wd")
-        elem[0].send_keys(f'{search_keyword}{Keys.RETURN}')
+        print(len(elem))
+        print(elem)
+        elem.send_keys(f'{search_keyword}{Keys.RETURN}')
         print(f'搜索关键词~{search_keyword}')
         time.sleep(5)
         self.assertTrue(f'{search_keyword}' in self.driver.title,msg=f'{testcase_name}校验点 pass')
