@@ -17,6 +17,7 @@ class Iselenium(unittest.TestCase):
         config=configparser.ConfigParser()
         config.read(os.path.join(os.environ['HOME'],'iselenum.ini'))#linux中
         # config.read(os.path.abspath('..') + '\iselenium.ini')#windows中
+        # os.environ['HOME']  在linux中cd ~   ,在windows中例如c:\users\username
 
         return config
 
